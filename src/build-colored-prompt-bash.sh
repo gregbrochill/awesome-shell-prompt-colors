@@ -17,22 +17,22 @@ function buildColorPrompt() {
     PROMPT_COLORS="red,white,blue"
 
     # Colors! 
-    BLACK="\e[30m"
-    WHITE="\e[97m"
-    RED="\e[31m"
-    GREEN="\e[32m"
-    YELLOW="\e[33m"
-    BLUE="\e[34m"
-    MAGENTA="\e[35m"
-    CYAN="\e[36m"
-    LIGHT_GRAY="\e[37m"
-    DARK_GRAY="\e[90m"
-    LIGHT_RED="\e[91m"
-    LIGHT_GREEN="\e[92m"
-    LIGHT_YELLOW="\e[93m"
-    LIGHT_BLUE="\e[94m"
-    LIGHT_MAGENTA="\e[95m"
-    LIGHT_CYAN="\e[96m"
+    BLACK="\e[30m\]"
+    WHITE="\e[97m\]"
+    RED="\e[31m\]"
+    GREEN="\e[32m\]"
+    YELLOW="\e[33m\]"
+    BLUE="\e[34m\]"
+    MAGENTA="\e[35m\]"
+    CYAN="\e[36m\]"
+    LIGHT_GRAY="\e[37m\]"
+    DARK_GRAY="\e[90m\]"
+    LIGHT_RED="\e[91m\]"
+    LIGHT_GREEN="\e[92m\]"
+    LIGHT_YELLOW="\e[93m\]"
+    LIGHT_BLUE="\e[94m\]"
+    LIGHT_MAGENTA="\e[95m\]"
+    LIGHT_CYAN="\e[96m\]"
 
     # End formatting string
     END_FORMATTING="\[\e[0m\]"
@@ -114,7 +114,7 @@ function buildColorPrompt() {
         esac 
 
         # add to ps1 var - color, then letter, then the end formatter
-        ps1+=$COLOR"${letters[$i]}"
+        ps1+=$COLOR"${letters[$i]}$END_FORMATTING"
 
         # reset color index if we are at the end of the color array, otherwise increment it
         if (( $color_index == ${#colors_array[@]} - 1 ))
@@ -124,7 +124,6 @@ function buildColorPrompt() {
             ((color_index=color_index+1))
         fi
     }
-    ps1+="$END_FORMATTING\]"
 
     # Finally: set the PS1 variable
     PS1=$ps1
