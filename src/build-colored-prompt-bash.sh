@@ -10,7 +10,7 @@ function buildColorPrompt() {
     directory=$(pwd)
 
     # Modify these to whatever you'd like!
-    PROMPT_TEXT="awesome-shell-prompt-colors@awesome-machine [$directory] "
+    PROMPT_TEXT="awesome-shell-prompt-colors@awesome-machine [$directory]"
 
     # Colors seperated by comma - acceptable values are: 
     # black, white, red, green, yellow, blue, magenta, cyan, light gray, light red, light green, light yellow, light blue, light magenta, light cyan 
@@ -60,57 +60,23 @@ function buildColorPrompt() {
         # Determine color in this giant case statement
         color="${colors_array[color_index]}"
         case $color in
-            "black")
-                COLOR=$BLACK
-                ;;
-            "red")
-                COLOR=$RED
-                ;;
-            "green")
-                COLOR=$GREEN
-                ;;
-            "yellow")
-                COLOR=$YELLOW
-                ;;
-            "blue")
-                COLOR=$BLUE
-                ;;
-            "magenta")
-                COLOR=$MAGENTA
-                ;;
-            "cyan")
-                COLOR=$CYAN
-                ;;
-            "light gray")
-                COLOR=$LIGHT_GRAY
-                ;;
-            "dark gray")
-                COLOR=$DARK_GRAY
-                ;;
-            "light red")
-                COLOR=$LIGHT_RED
-                ;;
-            "light green")
-                COLOR=$LIGHT_GREEN
-                ;;
-            "light yellow")
-                COLOR=$LIGHT_YELLOW
-                ;; 
-            "light blue")
-                COLOR=$LIGHT_BLUE
-                ;;
-            "light magenta")
-                COLOR=$LIGHT_MAGENTA
-                ;;
-            "light cyan")
-                COLOR=$LIGHT_CYAN
-                ;;
-            "white")
-                COLOR=$WHITE
-                ;;
-            *)
-                COLOR=$WHITE
-                ;;
+            "black") COLOR=$BLACK ;;
+            "red") COLOR=$RED ;;
+            "green") COLOR=$GREEN ;;
+            "yellow") COLOR=$YELLOW ;;
+            "blue") COLOR=$BLUE ;;
+            "magenta") COLOR=$MAGENTA ;;
+            "cyan") COLOR=$CYAN ;;
+            "light gray") COLOR=$LIGHT_GRAY ;;
+            "dark gray") COLOR=$DARK_GRAY ;;
+            "light red") COLOR=$LIGHT_RED ;;
+            "light green") COLOR=$LIGHT_GREEN ;;
+            "light yellow") COLOR=$LIGHT_YELLOW ;;
+            "light blue") COLOR=$LIGHT_BLUE ;;
+            "light magenta") COLOR=$LIGHT_MAGENTA ;;
+            "light cyan") COLOR=$LIGHT_CYAN ;;
+            "white") COLOR=$WHITE ;;
+            )* COLOR=$WHITE ;;
         esac 
 
         # add to ps1 var - color, then letter, then the end formatter
@@ -124,7 +90,7 @@ function buildColorPrompt() {
             ((color_index=color_index+1))
         fi
     }
-
+    ps1+="♠ "
     # Finally: set the PS1 variable
     PS1=$ps1
 }
